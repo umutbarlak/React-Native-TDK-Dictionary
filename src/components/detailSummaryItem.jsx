@@ -2,21 +2,31 @@ import React from 'react';
 import Box from './box';
 import Text from './text';
 
-const DetailSummaryItemContainer = ({children, border, ...props}) => {
+const DetailSummaryItemContainer = ({
+  children,
+  order,
+  type,
+  border,
+  ...props
+}) => {
   return (
     <Box bg="white" px={26} {...props}>
       <Box py={20} borderTopWidth={border ? 1 : 0} borderColor="light">
-        <Box flexDirection="row">
-          <Text color={'textLight'} ml={-12}>
-            1
-          </Text>
-          <Text color="red" ml={5}>
-            İSİM
-          </Text>
-        </Box>
-
-        <Box mt={8}>{children}</Box>
+        {children}
       </Box>
+    </Box>
+  );
+};
+
+export const DetailItemOrderType = ({order, type}) => {
+  return (
+    <Box flexDirection="row">
+      <Text color={'textLight'} ml={-12}>
+        {order}
+      </Text>
+      <Text color="red" ml={5}>
+        {type}
+      </Text>
     </Box>
   );
 };

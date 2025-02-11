@@ -14,7 +14,6 @@ export const CardContainer = ({children, ...props}) => {
 };
 
 export const CardBorder = ({children, ...props}) => {
-  console.log(props);
   return (
     <Box flex={1} {...props}>
       {children}
