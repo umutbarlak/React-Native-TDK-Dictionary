@@ -5,7 +5,7 @@ const sizes = {
 };
 
 const radii = {
-  normal: 8,
+  normal: 6,
 
   full: 999,
 };

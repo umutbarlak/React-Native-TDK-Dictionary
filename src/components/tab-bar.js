@@ -65,6 +65,8 @@ function TabBar({state, descriptors, navigation}) {
             onPress={onPress}>
             {label === 'history' ? (
               <HistoryIcon
+                width={24}
+                height={24}
                 color={isFocused ? theme.colors.red : theme.colors.textLight}
               />
             ) : (

@@ -4,14 +4,19 @@ import {Animated, useAnimatedValue} from 'react-native';
 import Box from './box';
 import LogoSvg from './icons/logo';
 
-const HomeSearch = ({setSearchFocus, isSearchFocus}) => {
+const HomeSearch = ({
+  setSearchFocus,
+  isSearchFocus,
+  getSearchData,
+  setSearchData,
+}) => {
   const animHeight = useAnimatedValue(250);
   const animOpacity = new Animated.Value(1);
   useEffect(() => {
     if (isSearchFocus) {
       Animated.timing(animHeight, {
-        toValue: 50 + 32,
-        duration: 250,
+        toValue: 50 + 32 + 48,
+        duration: 150,
         useNativeDriver: false,
       }).start();
       Animated.timing(animOpacity, {
@@ -27,7 +32,7 @@ const HomeSearch = ({setSearchFocus, isSearchFocus}) => {
       }).start();
       Animated.timing(animOpacity, {
         toValue: 1,
-        duration: 300,
+        duration: 150,
         useNativeDriver: true,
       }).start();
     }
@@ -45,13 +50,16 @@ const HomeSearch = ({setSearchFocus, isSearchFocus}) => {
       </Box>
 
       <Box
-        p={16}
         width="100%"
         mb={isSearchFocus ? 0 : -40}
         zIndex={1}
         position="absolute"
         bottom={0}>
-        <SearchInput onChangeFocus={status => setSearchFocus(status)} />
+        <SearchInput
+          setSearchData={setSearchData}
+          onChangeFocus={status => setSearchFocus(status)}
+          getSearchData={getSearchData}
+        />
       </Box>
     </Box>
   );

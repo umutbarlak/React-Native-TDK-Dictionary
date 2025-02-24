@@ -32,7 +32,7 @@ function SearchStack() {
               <MoreSvg color={theme.colors.textDark} />
             </Button>
           ),
-          title: route.params?.title,
+          title: route.params?.keyword,
           headerStyle: {
             backgroundColor: '#f8f8f8',
           },
